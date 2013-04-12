@@ -12,8 +12,9 @@ setcookie("SessionID", $a);
     <meta charset="utf-8" />
     <title>Twitter Bootstrap Version2.0 inline form layout example</title>
     <meta name="description" content="Twitter Bootstrap Version2.0 inline form layout example from w3resource.com." />
+
     <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="../bootstrap/bootstrap-datetimepicker\build\css\bootstrap-datetimepicker.min" rel="stylesheet" />
+    <link href="../bootstrap/bootstrap-datetimepicker\build\css\bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" media="screen"/>
   </head>
   <body>
   <div class="container">
