@@ -1,11 +1,9 @@
-  <?php
+<?php
   session_start();
-
-  $_SESSION['TypeOfFood'] = $_POST["TypeOfFood"];
+  $fields = array("GlutenFree", "Kosher", "Vegan", "Vegetarian", "Vegan", "CustomDiet", "CustomDietText", "Alcohol", "indooroutdoor");
+  $nextPage = 'plates.php';
+  include 'FieldCheck.php';
   
-  $_SESSION['CateringServices'] = $_POST["CateringServices"];
-  /* etc ?? this work?*/
-
   ?>
   <html>
   <head>
@@ -25,9 +23,9 @@
        </div>
        <div class="row span11 pull-right well">
         <h3><u>Additional Information</h3></u>
-        <form class="form-horizontal" method="post" action="review.php">
+        <form class="form-horizontal" method="post">
 		<div class="control-group">
-		   <input type="checkbox" name="ThirdParty" /> Alcohol
+		   <input type="checkbox" name="Alcohol" /> Alcohol
 		</div>
 			 <div class="control-group">
             <label class="control-label" for="dietlist">Dietary Requirements:</label>
@@ -48,7 +46,7 @@
     <option>Outdoor</option>
   </select>
 		</div>
-		       <input class="pull-right img-rounded" type="submit" value="Next"/>
+		       <input class="pull-right img-rounded" type="submit" value="Next" name="input"/>
 			   </form>
         </div>
 		</div>

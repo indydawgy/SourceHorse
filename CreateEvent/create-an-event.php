@@ -1,3 +1,13 @@
+<?php
+
+  session_start();
+  $fields = array("EventTitle", "DateTime", "EventAddress", "ThirdParty", "HostInfo", "EventType", "EventAmbiance", "EventOverview");
+  $required = array("EventTitle", "DateTime", "EventAddress", "HostInfo", "EventType", "EventAmbiance", "EventOverview");
+  $nextPage = 'create-auctions.php';
+ include 'FieldCheck.php';
+ 
+  
+  ?>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -9,7 +19,7 @@
 </head>
 <body>
 
-   <form action = "create-auctions.php" method = "post" class="form-horizontal">
+   <form method = "post" class="form-horizontal">
    
 
    <div class="container well" >
@@ -22,7 +32,7 @@
       </div>      
 	  <div class="span10">
         <p>
-          <input type="text" name="EventTitle" placeholder="Title" />
+          <input type="text" name="EventTitle" placeholder="Title" <?php   if(isset($_SESSION['EventTitle'])) echo "value=".$_SESSION['EventTitle'];?> />
         </p>
       </div>
      </div>
@@ -32,7 +42,7 @@
       </div>
       <div class="span10">
       <div id="datetimepicker" class="input-append">
-      <input data-format="MM-dd-yyyy" type="text" name ="DateTime" placeholder="mm-dd-yyyy"/>
+      <input data-format="MM-dd-yyyy" type="text" name ="DateTime" placeholder="mm-dd-yyyy" <?php   if(isset($_SESSION['DateTime'])) echo "value=".$_SESSION['DateTime'];?> />
 	  <span class="add-on">
       <i data-time-icon="icon-time" data-date-icon="icon-calendar">
       </i>
@@ -59,14 +69,14 @@
     </div>
     <div class="span9">
       <p>
-       <textarea class="span6" rows="3" name="EventAddress" placeholder="Address; Zipcode"></textarea>
+       <textarea class="span6" rows="3" name="EventAddress" placeholder="Address; Zipcode" <?php   if(isset($_SESSION['EventAddress'])) echo "value="+$_SESSION['EventAddress'];?>></textarea>
      </p>
    </div>
  </div>
 
  <div class="row">
   <div class="span12">
-    <input type="checkbox" name="ThirdParty" /> Are you a third party event organizer?
+    <input type="checkbox" name="ThirdParty" value="falsish" /> Are you a third party event organizer?
 </div>
 
 <div class="pull-right">
@@ -104,7 +114,7 @@
 
   </div>
 
-    <input class="pull-right img-rounded" type="submit" value="Create Auctions"/>
+    <input class="pull-right img-rounded" type="submit" value="Create Auctions" name="input"/>
 
 </div>
 </div>
